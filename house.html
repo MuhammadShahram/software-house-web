@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="We Connect - Professional Software Solutions">
+    <title>We Connect | Software House</title>
+            
+
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        header {
+    background-color: #313131; /* Existing background color */
+    color: white; /* Text color */
+    padding: 1rem; /* Existing padding */
+    text-align: center; /* Existing text alignment */
+    position: sticky; /* Sticky positioning */
+    top: 0; /* Stick to the top */
+    z-index: 1000; /* Ensure it stays above other content */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    height: 100px;/* FOR TESTING/*
+    /* Animation properties */
+    animation: slideInTop 1s ease forwards; /* Apply the animation */
+}
+
+/* Animation keyframes for sliding in from top */
+@keyframes slideInTop {
+    from {
+        transform: translateY(-100%); /* Start from above the screen */
+        opacity: 0; /* Invisible at start */
+    }
+    to {
+        transform: translateY(0); /* End at original position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease; /* Added transition for link color */
+        }
+
+        nav ul li a:hover {
+            color: #008080; /* Changed hover color to gold */ 
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 20px;
+            transition: color 0.3s ease; /* Added transition for social links */
+        }
+
+        .social-links a:hover {
+            color: #00aaff;
+        }
+
+        .fancy-button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .fancy-button:hover {
+            background-color: #218838;
+        }
+
+        /* Register Now Button on the Right Side */
+        .register-now {
+            position: fixed;
+            right: 20px;
+            bottom: 50px;
+            background-color: #e9ecef;
+            color: #6f42c1;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            z-index: 1000;
+            animation: fadeIn 1.5s ease-out forwards;
+            opacity: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .register-now:hover {
+            background-color: #30b5c1;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Fancy gradient for about section */
+        #about {
+            background-color: #001F3F;
+            padding: 4rem;
+        }
+
+        #services, #projects, #students {
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .service-card, .project-card, .student-card {
+            background-color:#E0EFFF;/* Bright purple on hover */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 1s ease-in-out; /* Added animation for card appearance */
+        }
+
+        .service-card:hover, .project-card:hover, .student-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon, .project-icon, .student-icon {
+            font-size: 50px;
+            color: #D3D3D3;/* Bright purple on hover */
+            margin-bottom: 15px;
+        }
+
+        .service-title, .project-title, .student-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .services-container, .projects-container, .students-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .social-media-icons {
+            margin-top: 10px;
+        }
+
+        .social-media-icons a {
+            margin: 0 5px;
+            font-size: 24px;
+            color: #007bff;
+            transition: color 0.3s ease; /* Added transition for icons */
+        }
+
+        .social-media-icons a:hover {
+            color: #0056b3;
+        }
+
+        /* Table styling */
+        .internship-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            text-align: left;
+            background-color: #F8F9FA;
+            border-radius: 8px;
+        }
+
+        .internship-table th, .internship-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #F8F9FA;
+        }
+
+        .internship-table th {
+            background-color: #008080;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .internship-table tr:hover {
+            background-color: #F8F9FA;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* Add some animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile adjustments */
+        @media only screen and (max-width: 768px) {
+            header h1 {
+                font-size: 18px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            .social-links {
+                display: none;
+            }
+        }
+
+        
+        
+  
+    </style>
+   
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Register Now Button -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScHa7v666fEqJK8zS0HZDOpYNpkBBZ9LnZpHRU5TnL52qkokA/viewform" target="_blank" class="register-now">Register Now</a>
+
+    <!-- Social Media Links and Menu -->
+    <header style="background-image: url(https://i.postimg.cc/bw265fP1/download.png);" class="header" header:hover {
+        animation: slideInTop 1s ease forwards; 
+    }
+    >
+
+      
+      <script>
+        window.addEventListener('scroll', function() {
+          var header = document.querySelector('.slide-in');
+          var scrollPosition = window.scrollY;
+      
+          if (scrollPosition > 50) { /* 50px scroll hone ke baad animation start hogi */
+            header.classList.add('visible');
+          }
+        });
+      </script>
+      >
+        <div class="social-links">
+            <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+        <div class="container">
+           <img src="https://i.postimg.cc/0jxPH0hq/logo.png" alt="logo" class="logo" width="80px" height="70px" style="border-radius: 100%; margin-left: 50px; margin-right: 100px; position: absolute; float: right; right: 30px; top: 20px;"  >
+    
+             
+
+    
+
+            <h1>We Connect   </h1>
+            <hr>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#students">Happy Students</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <hr>
+        </div>
+        
+    </header>
+
+
+   
+    <section id="about">
+        <div class="container about-details"> <!-- Yahan animation class add hui hai -->
+            <title>Internship Program</title>
+            <style>
+                /* Animation keyframes */
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(-100%); /* Start from left */
+                        opacity: 0; /* Invisible at start */
+                    }
+                    to {
+                        transform: translateX(0); /* End at original position */
+                        opacity: 1; /* Fully visible */
+                    }
+                }
+        
+                /* Apply animation to the specific section */
+                .about-details {
+                    animation: slideIn 1s ease forwards; /* 1 second duration */
+                } </style>
+                                      
+
+
+            
+                   </head>
+        <body>
+            
+
+            <div class="container about-details" style="
+            width: 100%;
+            height: 400px; /* Height apne mutabiq adjust kar sakte hain */
+            background-image: url('https://i.postimg.cc/3NsQdqzm/abstract-image-for-body.png');
+            background-size: cover; /* Image ko stretch karega */
+            background-position: center; /* Image ko center me rakhega */
+            background-repeat: no-repeat; /* Image ko repeat hone se roke ga */
+        "
+         > <!-- Animation class added here -->
+                
+
+                <h2 style="color: white;" >Internship Program by WeConnect</h2> 
+                <p style="color: white;"><strong>Agreement with Software House and Student</strong></p>
+                <p style="color: white;">Note: Internships are totally free for some levels.
+                     See details below.</p>
+        
+                <ol style="color: white;">
+                    <li>Expert Level: This level is free. Candidates work Monday to Thursday, 3 hours daily,<br> and the internship concludes with a job offer and a certificate after completing 3 months.</li>
+                   <br>
+                    <li>Intermediate Level: Students at this level pay an initial fee of 5k.<br> They receive guidance and work Monday to Thursday. <br>After 3 months, they will receive a certificate. For the second month and onward, <br> fee will be determined based on their performance.</li>
+                    <br>
+                    <li>Beginner Level: Students at this level pay a 10k fee for the first month.<br> For the subsequent months, the fee will depend on performance.</li>
+                   <br>
+                    <li>Students can send their CVs to our WhatsApp contact number,<br> and interviews will be conducted weekly.</li>
+                </ol>
+            
+        </div>
+    </section>
+<section style="background-color: #fbfcfd;">
+    
+
+    <section id="services">
+        <div class="container">
+            <hr>
+            <h2 >Our Services</h2>
+            <hr>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="service-title">Web Development</h3>
+                    <p>Custom web applications tailored to your business needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="service-title">Mobile App Development</h3>
+                    <p>Intuitive mobile apps for both iOS and Android platforms.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-robot"></i></div>
+                    <h3 class="service-title">AI Solutions</h3>
+                    <p>Innovative AI-driven solutions for modern challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <hr>
+            <h2>Our Projects</h2>
+            <hr>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="project-title">Flutter Android App Development</h3>
+                    <p>We have developed several Android applications using Flutter, leveraging its fast development capabilities and expressive UI components. These projects focus on providing seamless user experiences and performance, showcasing my ability to create engaging and functional mobile apps.</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-cloud"></i></div>
+                    <h3 class="project-title">Google SEO</h3>
+                    <p>We have implemented effective SEO strategies for various websites, improving their visibility and search engine rankings. Through keyword research, on-page optimization, and backlink building, I have successfully enhanced organic traffic and user engagement for my clients.</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-python"></i></div>
+                    <h3 class="project-title">Python Flask Backend</h3>
+                    <p>We have created robust backends using Python Flask for web applications, focusing on developing RESTful APIs. These projects emphasize scalability and security, providing essential functionality to support frontend applications while ensuring smooth data management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="students">
+        <div class="container">
+            <hr>
+            <h2>Happy Students</h2>
+            <hr>
+            <div class="students-container">
+                <div class="student-card">
+                    <div class="student-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3 class="student-name">Ahmed Ali</h3>
+                    <p>I highly recommend WeConnect Training & Internship Program for anyone serious about a tech career. I worked diligently, and the dedicated faculty helped me refine my skills, which was key to achieving my dream job in the industry.</p>
+                </div>
+                <div class="student-card">
+                    <div class="student-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3 class="student-name">Muhammad Hamza</h3>
+                    <p>WeConnect Training & Internship Program provided an exceptional learning environment. The coursework was well-structured, and the hands-on projects prepared me for real-world challenges. I’m thankful for the knowledge and support I received from the instructors</p>
+                </div>
+                <div class="student-card">
+                    <div class="student-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3 class="student-name">Mamoon Ahmed</h3>
+                    <p>I cannot express how grateful I am for the education I received at WeConnect Training & Internship Program. The classes are well-structured, and the projects we worked on were relevant and challenging. The supportive learning environment fostered collaboration and creativity among students. The real-world applications of what I learned have given me the confidence to pursue my career in software development. I highly recommend this program to aspiring developers!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+    <section id="internships">
+        <div class="container">
+            <hr>
+            <h2>Internship Opportunities</h2>
+            <hr>
+            <table class="internship-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Duration</th>
+                        <th>Fee</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color: #333333; ;">Expert</td>
+                        <td style="color: #333333;">3 months</td>
+                        <td style="color: #333333;">Free</td>
+                    </tr>
+                    <tr>
+                        <td style="color: #333333;">Intermediate</td>
+                        <td style="color: #333333;">3 months</td>
+                        <td style="color: #333333;">5k (initial fee)</td>
+                    </tr>
+                    <tr>
+                        <td style="color: #333333;">Beginner</td>
+                        <td style="color: #333333;">3 months</td>
+                        <td style="color: #333333;">10k (initial fee)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    </section>
+</body>
+    <footer>
+        <p>&copy; 2024 We Connect. All Rights Reserved.</p>
+        <div class="social-media-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+</div>
+</html>
+
+
+
