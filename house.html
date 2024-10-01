@@ -7,7 +7,6 @@
     <title>We Connect | Software House</title>
             
 
-
     <style>
 
         body {
@@ -394,9 +393,47 @@
     </section>
 <section style="background-color: #fbfcfd;">
     
+<!------------------------------------------->
 
+<style>
+    .slide-in {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+  
+    .slide-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const elements = document.querySelectorAll('.slide-in');
+  
+      const checkSlide = () => {
+        const triggerBottom = window.innerHeight / 5 * 4;
+  
+        elements.forEach((element) => {
+          const boxTop = element.getBoundingClientRect().top;
+  
+          if (boxTop < triggerBottom) {
+            element.classList.add('visible');
+          } else {
+            element.classList.remove('visible');
+          }
+        });
+      };
+  
+      window.addEventListener('scroll', checkSlide);
+      checkSlide(); // Check on initial load
+    });
+  </script>
+  
+<!------------------------------------------->
     <section id="services">
-        <div class="container">
+        <div class="container" class="services slide-in">
             <hr>
             <h2 >Our Services</h2>
             <hr>
@@ -416,12 +453,22 @@
                     <h3 class="service-title">AI Solutions</h3>
                     <p>Innovative AI-driven solutions for modern challenges.</p>
                 </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="service-title">Cybersecurity</h3>
+                    <p>Protect your assets with our top-notch security services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-search-dollar"></i></div>
+                    <h3 class="service-title">SEO Optimization</h3>
+                    <p>Improve your website's visibility on search engines.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <div class="container">
+        <div class="container" class=" projects slide-in">
             <hr>
             <h2>Our Projects</h2>
             <hr>
@@ -446,7 +493,7 @@
     </section>
 
     <section id="students">
-        <div class="container">
+        <div class="container" class="happy-students slide-in">
             <hr>
             <h2>Happy Students</h2>
             <hr>
